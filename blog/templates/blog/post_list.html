@@ -6,15 +6,18 @@
         <div>
             <h1><a href="/">MYBLOG</a></h1>
         </div>
-        <div>
-            <p>pushed: 13.03.2020, 02:02</p>
-            <h2><a href="">My first post</a></h2>
-           ｙ <p>Hello!</p>
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>published: {{post.published_date}}</p>
+                <h2><a href="">{{post.title}}</a></h2>
+                <p>{{post.text|linebreaksbr}}</p>
+            </div>
+        {% endfor %}
+       
         
         <div>
             <p>公開日　:2020/03/13, 02:02</p>
-            <h2><a href="">2番目の投稿</a></h2>
+            <h2><a href="">second post</a></h2>
             <p>ya!</p>
         </div>
             
