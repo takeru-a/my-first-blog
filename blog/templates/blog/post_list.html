@@ -1,25 +1,14 @@
-<html>
-    <head>
-        <title>MYBLOG</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">MYBLOG</a></h1>
-        </div>
-        {% for post in posts %}
-            <div>
-                <p>published: {{post.published_date}}</p>
-                <h2><a href="">{{post.title}}</a></h2>
-                <p>{{post.text|linebreaksbr}}</p>
-            </div>
-        {% endfor %}
-       
-        
-        <div>
-            <p>公開日　:2020/03/13, 02:02</p>
-            <h2><a href="">second post</a></h2>
-            <p>ya!</p>
-        </div>
+              {% extends 'blog/base.html' %}  
+
+              {% block content %}
+                    {% for post in posts %}
+                        <div class="post">
+                            <div class="date">
+                                <p>published: {{post.published_date}}</p>
+                            </div>
+                            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+                            <p>{{post.text|linebreaksbr}}</p>
+                        </div>
+                    {% endfor %}
+              {% endblock %}
             
-    </body>
-</html>
